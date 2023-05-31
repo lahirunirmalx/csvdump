@@ -1,21 +1,23 @@
-name: Update cms/master
+name: 'Nightly Merge'
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron:  '0 0 * * *'
 
 jobs:
-  update-cms-master:
-    name: Merge master into cms/master after a PR is merged
+  nightly-merge:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: merge
-        uses: mtanzi/action-automerge@v1
-        id: merge
-        with:
-          github_token: ${{ github.token }}
-          source: 'master'
-          target: 'main' 
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Nightly Merge
+      uses: robotology/gh-action-nightly-merge@v1.4.0
+      with:
+        stable_branch: 'master'
+        development_branch: 'main'
+        allow_ff: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
