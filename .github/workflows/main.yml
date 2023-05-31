@@ -17,8 +17,8 @@ jobs:
     - name: Nightly Merge
       uses: robotology/gh-action-nightly-merge@v1.4.0
       with:
-        stable_branch: 'dev1'
-        development_branch: 'master'
-        allow_ff: false
+        stable_branch: 'master'
+        development_branch: 'dev'
+        allow_ff: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
