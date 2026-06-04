@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Usage &amp; Driving — Monthly Data</title>
+<style>
+  :root{
+    --ink:#161d2e; --muted:#6b7280; --line:#e6e9ef; --bg:#f5f7fb; --pad:#fff;
+    --bar:#3b5bdb; --bar2:#5b8def; --line-c:#e6892e; --litres:#9b59b6;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       margin:0;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:1020px;margin:0 auto;padding:30px 22px 60px}
+  header.hero{background:linear-gradient(135deg,#1a2a52 0%,#3b5bdb 100%);color:#fff;border-radius:18px;
+       padding:26px 32px;box-shadow:0 12px 30px rgba(30,42,82,.28)}
+  header.hero .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:11px;opacity:.8;margin:0}
+  header.hero h1{margin:5px 0 2px;font-size:24px;font-weight:700}
+  header.hero .sub{opacity:.85;font-size:13px;margin:0 0 16px}
+  .nw{display:flex;flex-wrap:wrap;gap:24px}
+  .nw .item{min-width:120px}
+  .nw .big{font-size:26px;font-weight:800;line-height:1}
+  .nw .label{font-size:10.5px;opacity:.8;text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+  .card{background:var(--pad);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+        box-shadow:0 1px 2px rgba(16,24,40,.04);margin-top:20px}
+  .card h2{margin:0 0 12px;font-size:16px}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;font-size:12.5px;margin-top:6px}
+  .legend .item{display:inline-flex;align-items:center;gap:7px}
+  .legend .sw{width:14px;height:14px;border-radius:3px}
+  .legend .swline{width:18px;height:3px;background:var(--line-c);border-radius:2px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--pad);border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.05);margin-top:6px}
+  th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line)}
+  th{background:#eef2fb;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#475069;font-weight:700}
+  td.l,th.l{text-align:left}
+  footer{margin-top:30px;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+  svg{display:block;width:100%;height:auto}
+  text{font-family:-apple-system,Segoe UI,Roboto,sans-serif;fill:#3c4659}
+  .grid-line{stroke:#eef1f6;stroke-width:1}
+  .axis{stroke:#cbd0d9;stroke-width:1}
+  @media print{body{background:#fff}.wrap{padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Fuel &amp; Driving — Jun 2025 → May 2026</p>
+    <h1>🚗 Fuel, Price, Kilometres &amp; Commute Options</h1>
+    <p class="sub">LP 92 Octane · 13.5 km/L · 14 km RT commute · 22 office days/mo</p>
+    <div class="nw">
+      <div class="item"><div class="label">Fuel spent (12 mo)</div><div class="big">Rs 354,329</div></div>
+      <div class="item"><div class="label">Litres pumped</div><div class="big">~1,091 L</div></div>
+      <div class="item"><div class="label">Km driven</div><div class="big">~14,734 km</div></div>
+      <div class="item"><div class="label">Per month</div><div class="big">~1,228 km</div></div>
+      <div class="item"><div class="label">Per day (365d)</div><div class="big">~40 km</div></div>
+      <div class="item"><div class="label">Cost / km (fuel)</div><div class="big">Rs 24.05</div></div>
+    </div>
+  </header>
+
+  <!-- MAIN CHART -->
+  <div class="card">
+    <h2>📊 Km Driven vs LP 92 Price — Jun 2025 → May 2026</h2>
+
+    <svg viewBox="0 0 920 420" preserveAspectRatio="xMidYMid meet">
+      <g>
+        <line class="grid-line" x1="80" y1="60"  x2="880" y2="60"/>
+        <line class="grid-line" x1="80" y1="135" x2="880" y2="135"/>
+        <line class="grid-line" x1="80" y1="210" x2="880" y2="210"/>
+        <line class="grid-line" x1="80" y1="285" x2="880" y2="285"/>
+        <line class="grid-line" x1="80" y1="360" x2="880" y2="360"/>
+      </g>
+      <line class="axis" x1="80" y1="60" x2="80" y2="360"/>
+      <text x="74" y="65"  text-anchor="end" font-size="11">1600</text>
+      <text x="74" y="140" text-anchor="end" font-size="11">1200</text>
+      <text x="74" y="215" text-anchor="end" font-size="11">800</text>
+      <text x="74" y="290" text-anchor="end" font-size="11">400</text>
+      <text x="74" y="365" text-anchor="end" font-size="11">0</text>
+      <text x="40" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#3b5bdb" transform="rotate(-90,40,210)">Kilometres / month</text>
+      <line class="axis" x1="880" y1="60" x2="880" y2="360"/>
+      <text x="886" y="65"  font-size="11">450</text>
+      <text x="886" y="140" font-size="11">408</text>
+      <text x="886" y="215" font-size="11">365</text>
+      <text x="886" y="290" font-size="11">323</text>
+      <text x="886" y="365" font-size="11">280</text>
+      <text x="908" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#e6892e" transform="rotate(90,908,210)">LKR / litre (92 Oct)</text>
+
+      <!-- Bars: chronological Jun 2025 → May 2026 -->
+      <!-- Jun 25 km=1202 -->
+      <g><rect x="92"  y="135" width="38" height="225" rx="3" fill="#3b5bdb"/><text x="111" y="128" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1202</text></g>
+      <!-- Jul 25 km=692 -->
+      <g><rect x="153" y="230" width="38" height="130" rx="3" fill="#3b5bdb"/><text x="172" y="223" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">692</text></g>
+      <!-- Aug 25 km=1527 -->
+      <g><rect x="214" y="74"  width="38" height="286" rx="3" fill="#3b5bdb"/><text x="233" y="67"  text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1527</text></g>
+      <!-- Sep 25 km=1175 -->
+      <g><rect x="275" y="140" width="38" height="220" rx="3" fill="#3b5bdb"/><text x="294" y="133" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1175</text></g>
+      <!-- Oct 25 km=1119 -->
+      <g><rect x="336" y="150" width="38" height="210" rx="3" fill="#3b5bdb"/><text x="355" y="143" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1119</text></g>
+      <!-- Nov 25 km=1439 -->
+      <g><rect x="397" y="90"  width="38" height="270" rx="3" fill="#3b5bdb"/><text x="416" y="83"  text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1439</text></g>
+      <!-- Dec 25 km=1397 -->
+      <g><rect x="458" y="98"  width="38" height="262" rx="3" fill="#3b5bdb"/><text x="477" y="91"  text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1397</text></g>
+      <!-- Jan 26 km=1070 -->
+      <g><rect x="519" y="159" width="38" height="201" rx="3" fill="#3b5bdb"/><text x="538" y="152" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1070</text></g>
+      <!-- Feb 26 km=1553 -->
+      <g><rect x="580" y="69"  width="38" height="291" rx="3" fill="#3b5bdb"/><text x="599" y="62"  text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1553</text></g>
+      <!-- Mar 26 km=1316 -->
+      <g><rect x="641" y="113" width="38" height="247" rx="3" fill="#3b5bdb"/><text x="660" y="106" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1316</text></g>
+      <!-- Apr 26 km=951 -->
+      <g><rect x="702" y="182" width="38" height="178" rx="3" fill="#3b5bdb"/><text x="721" y="175" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">951</text></g>
+      <!-- May 26 km=1295 -->
+      <g><rect x="763" y="117" width="38" height="243" rx="3" fill="#3b5bdb"/><text x="782" y="110" text-anchor="middle" font-size="10" font-weight="700" fill="#3b5bdb">1295</text></g>
+
+      <!-- Price line (chronological)
+           Jun 410→131, Jul 305→316, Aug 305→316, Sep 299→327, Oct 299→327,
+           Nov 294→335, Dec 294→335, Jan 294→335, Feb 292→339, Mar 317→295,
+           Apr 398→152, May 410→131 -->
+      <polyline fill="none" stroke="#e6892e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+        points="111,131 172,316 233,316 294,327 355,327 416,335 477,335 538,335 599,339 660,295 721,152 782,131"/>
+
+      <g fill="#e6892e">
+        <circle cx="111" cy="131" r="4"/><text x="111" y="121" text-anchor="middle" font-size="10" font-weight="700">410</text>
+        <circle cx="172" cy="316" r="4"/>
+        <circle cx="233" cy="316" r="4"/><text x="233" y="335" text-anchor="middle" font-size="10" font-weight="700">305</text>
+        <circle cx="294" cy="327" r="4"/>
+        <circle cx="355" cy="327" r="4"/><text x="355" y="346" text-anchor="middle" font-size="10" font-weight="700">299</text>
+        <circle cx="416" cy="335" r="4"/>
+        <circle cx="477" cy="335" r="4"/>
+        <circle cx="538" cy="335" r="4"/><text x="538" y="354" text-anchor="middle" font-size="10" font-weight="700">294</text>
+        <circle cx="599" cy="339" r="4"/><text x="599" y="358" text-anchor="middle" font-size="10" font-weight="700">292</text>
+        <circle cx="660" cy="295" r="4"/>
+        <circle cx="721" cy="152" r="4"/><text x="721" y="142" text-anchor="middle" font-size="10" font-weight="700">398</text>
+        <circle cx="782" cy="131" r="4"/><text x="782" y="121" text-anchor="middle" font-size="10" font-weight="700">410</text>
+      </g>
+
+      <line class="axis" x1="80" y1="360" x2="880" y2="360"/>
+      <g font-size="11" text-anchor="middle" fill="#475069" font-weight="600">
+        <text x="111" y="380">Jun '25</text><text x="172" y="380">Jul</text><text x="233" y="380">Aug</text>
+        <text x="294" y="380">Sep</text><text x="355" y="380">Oct</text><text x="416" y="380">Nov</text>
+        <text x="477" y="380">Dec</text><text x="538" y="380">Jan '26</text><text x="599" y="380">Feb</text>
+        <text x="660" y="380">Mar</text><text x="721" y="380">Apr</text><text x="782" y="380">May '26</text>
+      </g>
+    </svg>
+
+    <div class="legend">
+      <span class="item"><span class="sw" style="background:#3b5bdb"></span> Km driven (left axis)</span>
+      <span class="item"><span class="swline"></span> LP 92 Octane price (right axis)</span>
+    </div>
+  </div>
+
+  <!-- LITRES CHART -->
+  <div class="card">
+    <h2>⛽ Litres Pumped — Jun 2025 → May 2026</h2>
+
+    <svg viewBox="0 0 920 270" preserveAspectRatio="xMidYMid meet">
+      <line class="grid-line" x1="80" y1="40"  x2="880" y2="40"/>
+      <line class="grid-line" x1="80" y1="80"  x2="880" y2="80"/>
+      <line class="grid-line" x1="80" y1="120" x2="880" y2="120"/>
+      <line class="grid-line" x1="80" y1="160" x2="880" y2="160"/>
+      <line class="grid-line" x1="80" y1="200" x2="880" y2="200"/>
+      <line class="grid-line" x1="80" y1="240" x2="880" y2="240"/>
+      <line class="axis" x1="80" y1="40" x2="80" y2="240"/>
+      <line class="axis" x1="80" y1="240" x2="880" y2="240"/>
+      <text x="74" y="45" text-anchor="end" font-size="11">125</text>
+      <text x="74" y="85" text-anchor="end" font-size="11">100</text>
+      <text x="74" y="125" text-anchor="end" font-size="11">75</text>
+      <text x="74" y="165" text-anchor="end" font-size="11">50</text>
+      <text x="74" y="205" text-anchor="end" font-size="11">25</text>
+      <text x="74" y="245" text-anchor="end" font-size="11">0</text>
+      <text x="40" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#9b59b6" transform="rotate(-90,40,140)">Litres</text>
+
+      <!-- Litres bars chronological (height = L/125*200, y = 240 - h) -->
+      <!-- Jun 89, Jul 51.3, Aug 113.1, Sep 87, Oct 82.9, Nov 106.6, Dec 103.5,
+           Jan 79.2, Feb 115, Mar 97.5, Apr 70.5, May 95.9 -->
+      <rect x="92"  y="98"  width="38" height="142" rx="3" fill="#9b59b6"/><text x="111" y="91"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">89</text>
+      <rect x="153" y="158" width="38" height="82"  rx="3" fill="#9b59b6"/><text x="172" y="151" text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">51</text>
+      <rect x="214" y="59"  width="38" height="181" rx="3" fill="#9b59b6"/><text x="233" y="52"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">113</text>
+      <rect x="275" y="101" width="38" height="139" rx="3" fill="#9b59b6"/><text x="294" y="94"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">87</text>
+      <rect x="336" y="107" width="38" height="133" rx="3" fill="#9b59b6"/><text x="355" y="100" text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">83</text>
+      <rect x="397" y="69"  width="38" height="171" rx="3" fill="#9b59b6"/><text x="416" y="62"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">107</text>
+      <rect x="458" y="74"  width="38" height="166" rx="3" fill="#9b59b6"/><text x="477" y="67"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">104</text>
+      <rect x="519" y="113" width="38" height="127" rx="3" fill="#9b59b6"/><text x="538" y="106" text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">79</text>
+      <rect x="580" y="56"  width="38" height="184" rx="3" fill="#9b59b6"/><text x="599" y="49"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">115</text>
+      <rect x="641" y="84"  width="38" height="156" rx="3" fill="#9b59b6"/><text x="660" y="77"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">98</text>
+      <rect x="702" y="127" width="38" height="113" rx="3" fill="#9b59b6"/><text x="721" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">71</text>
+      <rect x="763" y="87"  width="38" height="153" rx="3" fill="#9b59b6"/><text x="782" y="80"  text-anchor="middle" font-size="10" font-weight="700" fill="#9b59b6">96</text>
+
+      <g font-size="11" text-anchor="middle" fill="#475069" font-weight="600">
+        <text x="111" y="258">Jun '25</text><text x="172" y="258">Jul</text><text x="233" y="258">Aug</text>
+        <text x="294" y="258">Sep</text><text x="355" y="258">Oct</text><text x="416" y="258">Nov</text>
+        <text x="477" y="258">Dec</text><text x="538" y="258">Jan '26</text><text x="599" y="258">Feb</text>
+        <text x="660" y="258">Mar</text><text x="721" y="258">Apr</text><text x="782" y="258">May '26</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- MONTHLY DATA TABLE -->
+  <div class="card">
+    <h2>📋 Monthly Data — Jun 2025 → May 2026</h2>
+    <table>
+      <thead>
+        <tr>
+          <th class="l">Month</th>
+          <th>Spent (LKR)</th>
+          <th>92 Price (Rs/L)</th>
+          <th>Litres</th>
+          <th>Km (@13.5)</th>
+          <th>Km/day</th>
+          <th>Cost / km</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="l">Jun 2025</td><td>36,494</td><td>410</td><td>89.0</td><td>1,202</td><td>40</td><td>Rs 30.4</td></tr>
+        <tr><td class="l">Jul 2025</td><td>15,634</td><td>305</td><td>51.3</td><td>692</td><td>22</td><td>Rs 22.6</td></tr>
+        <tr><td class="l">Aug 2025</td><td>34,490</td><td>305</td><td>113.1</td><td>1,527</td><td>49</td><td>Rs 22.6</td></tr>
+        <tr><td class="l">Sep 2025</td><td>26,002</td><td>299</td><td>87.0</td><td>1,175</td><td>39</td><td>Rs 22.2</td></tr>
+        <tr><td class="l">Oct 2025</td><td>24,788</td><td>299</td><td>82.9</td><td>1,119</td><td>36</td><td>Rs 22.2</td></tr>
+        <tr><td class="l">Nov 2025</td><td>31,346</td><td>294</td><td>106.6</td><td>1,439</td><td>48</td><td>Rs 21.8</td></tr>
+        <tr><td class="l">Dec 2025</td><td>30,416</td><td>294</td><td>103.5</td><td>1,397</td><td>45</td><td>Rs 21.8</td></tr>
+        <tr><td class="l">Jan 2026</td><td>23,298</td><td>294</td><td>79.2</td><td>1,070</td><td>35</td><td>Rs 21.8</td></tr>
+        <tr><td class="l">Feb 2026</td><td>33,587</td><td>292</td><td>115.0</td><td>1,553</td><td>55</td><td>Rs 21.6</td></tr>
+        <tr><td class="l">Mar 2026</td><td>30,905</td><td>317</td><td>97.5</td><td>1,316</td><td>42</td><td>Rs 23.5</td></tr>
+        <tr><td class="l">Apr 2026</td><td>28,046</td><td>398</td><td>70.5</td><td>951</td><td>32</td><td>Rs 29.5</td></tr>
+        <tr><td class="l">May 2026</td><td>39,323</td><td>410</td><td>95.9</td><td>1,295</td><td>42</td><td>Rs 30.4</td></tr>
+        <tr style="background:#eef2fb;font-weight:700">
+          <td class="l">TOTAL (12 mo)</td>
+          <td>354,329</td><td>Avg 324.65</td><td>1,091</td><td>14,734</td><td>~40</td><td>Rs 24.05</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COMMUTE SCENARIO TABLE (monthly) -->
+  <div class="card">
+    <h2>🏠 Commute Scenarios — 14 km RT, 22 office days/mo (monthly figures)</h2>
+    <table>
+      <thead><tr><th class="l">Scenario</th><th>Commute days/mo</th><th>Commute km/mo</th><th>Total km/mo</th><th>Litres/mo</th><th>Fuel @ Rs 325 avg</th><th>Fuel @ Rs 434 (current)</th></tr></thead>
+      <tbody>
+        <tr><td class="l">Current (no WFH)</td><td>22</td><td>308</td><td>1,228</td><td>90.96</td><td>Rs 29,562</td><td>Rs 39,476</td></tr>
+        <tr><td class="l">1 day WFH/wk</td><td>18</td><td>252</td><td>1,172</td><td>86.81</td><td>Rs 28,213</td><td>Rs 37,679</td></tr>
+        <tr><td class="l">2 days WFH/wk</td><td>14</td><td>196</td><td>1,116</td><td>82.67</td><td>Rs 26,866</td><td>Rs 35,879</td></tr>
+        <tr><td class="l">3 days WFH/wk</td><td>10</td><td>140</td><td>1,060</td><td>78.52</td><td>Rs 25,519</td><td>Rs 34,078</td></tr>
+        <tr><td class="l">Full WFH</td><td>0</td><td>0</td><td>920</td><td>68.15</td><td>Rs 22,148</td><td>Rs 29,578</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PICKME TABLE -->
+  <div class="card">
+    <h2>🚖 PickMe / Uber — Daily Commute Cost (14 km RT × 22 days/mo)</h2>
+    <table>
+      <thead><tr><th class="l">Option</th><th>Rate</th><th>Cost / day</th><th>Per month (22 days)</th><th>Per year</th></tr></thead>
+      <tbody>
+        <tr><td class="l">PickMe Bike</td><td>~Rs 100 base + ~Rs 40/km</td><td>~Rs 760</td><td>Rs 16,720</td><td>Rs 200,640</td></tr>
+        <tr><td class="l">PickMe Tuk-tuk</td><td>~Rs 110 base + ~Rs 65/km</td><td>~Rs 1,130</td><td>Rs 24,860</td><td>Rs 298,320</td></tr>
+        <tr><td class="l">PickMe Flex</td><td>~Rs 130 base + ~Rs 75/km</td><td>~Rs 1,310</td><td>Rs 28,820</td><td>Rs 345,840</td></tr>
+        <tr><td class="l">PickMe Mini car</td><td>~Rs 180 base + ~Rs 100/km</td><td>~Rs 1,580</td><td>Rs 34,760</td><td>Rs 417,120</td></tr>
+        <tr><td class="l">PickMe Premium car</td><td>~Rs 200 base + ~Rs 130/km</td><td>~Rs 2,000</td><td>Rs 44,000</td><td>Rs 528,000</td></tr>
+        <tr style="background:#fff8ec"><td class="l">Own-car commute (current)</td><td>~Rs 24/km fuel + Rs 10/km wear</td><td>~Rs 405–540</td><td>Rs 8,900–11,900</td><td>Rs 106,800–142,200</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PICKME FULL TRANSPORT TABLE -->
+  <div class="card">
+    <h2>🚖 PickMe / Uber — Entire Transport (~40 km/day = 1,228 km/mo = 14,734 km/yr)</h2>
+    <table>
+      <thead><tr><th class="l">Option</th><th>Effective rate</th><th>Per day (~40 km)</th><th>Per month (1,228 km)</th><th>Per year (14,734 km)</th></tr></thead>
+      <tbody>
+        <tr><td class="l">PickMe Bike</td><td>~Rs 54/km</td><td>~Rs 2,160</td><td>Rs 66,312</td><td>Rs 795,744</td></tr>
+        <tr><td class="l">PickMe Tuk-tuk</td><td>~Rs 81/km</td><td>~Rs 3,240</td><td>Rs 99,468</td><td>Rs 1,193,616</td></tr>
+        <tr><td class="l">PickMe Flex</td><td>~Rs 94/km</td><td>~Rs 3,760</td><td>Rs 115,432</td><td>Rs 1,385,184</td></tr>
+        <tr><td class="l">PickMe Mini car</td><td>~Rs 113/km</td><td>~Rs 4,520</td><td>Rs 138,764</td><td>Rs 1,665,168</td></tr>
+        <tr><td class="l">PickMe Premium car</td><td>~Rs 143/km</td><td>~Rs 5,720</td><td>Rs 175,604</td><td>Rs 2,107,248</td></tr>
+        <tr style="background:#fff8ec"><td class="l">Own-car (all-in: fuel + maint + insurance + tolls)</td><td>Rs 45.27/km</td><td>~Rs 1,811</td><td>Rs 55,613</td><td>Rs 667,359</td></tr>
+        <tr style="background:#eef2fb;font-weight:700"><td class="l">Own-car (fuel only)</td><td>Rs 24.05/km</td><td>~Rs 962</td><td>Rs 29,548</td><td>Rs 354,329</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Chronological order Jun 2025 → May 2026 (12 full months). LP 92 Octane confirmed @ 13.5 km/L. Aug 2025 and Dec 2025 prices estimated from adjacent months. PickMe rates approximate per <a href="https://pickme.lk/services/ride/">pickme.lk</a> and <a href="https://ceypetco.gov.lk/historical-prices/">CPC historical prices</a>; actual fares vary by demand/time/route. Own-car wear estimated at Rs 10/km from maintenance line (Rs 112k/yr ÷ 14,734 km/yr ≈ Rs 7.6/km, rounded up). All-in transport cost-per-km (incl. insurance + tolls) is Rs 45.27/km.
+  </footer>
+
+</div>
+</body>
+</html>
